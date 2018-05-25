@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    image: mydockeruser/hello_world
+    container_name: hello_world
+    restart: always
+    ports:
+      - 80:5000
+    networks:
+      net:
+        ipv4_address: 172.10.0.2
+
+networks:
+  net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.10.0.0/24
